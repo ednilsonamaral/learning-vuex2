@@ -10,19 +10,42 @@
 <script>
 import CcUsers from './components/users/Main.vue'
 
-export default {
-    name: 'Papai',
-    
-    components: {
-        CcUsers
-    },
+import { mapState, mapActions } from 'vuex'
 
-    computed: {
-        user() {
-            const { name, email } = this.$store.state.user // objeto destructuring do es6
-            return `O usuário logado é ${ name } e possui o e-mail ${ email }.`
-        }
+export default {
+  name: 'Papai',
+
+  mounted() {
+    const payload = {
+      name: 'Ednilson Amaral',
+      email: 'ednilsonamaral.ti@gmail.com',
+      nivel: 'admin',
+      city: 'Itapeva',
+      state: 'SP'
     }
+
+    setTimeout(() => {
+      // this.$store.dispatch('changeUser', payload)
+      this.changeUser(payload)
+    }, 3000)
+  },
+
+  components: {
+    CcUsers
+  },
+
+  computed: {
+    ...mapState({
+      user: state => {
+        const { name, email } = state.user
+        return `O usuário logado é ${ name } e possui o e-mail ${ email }.`
+      }
+    })
+  },
+
+  methods: {
+    ...mapActions(['changeUser'])
+  }
 }
 </script>
 

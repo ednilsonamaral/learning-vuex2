@@ -1,9 +1,11 @@
 export default {
 	user: {
-		name: 'Ednilson Amaral',
-		email: 'ednilsonamaral.ti@gmail.com',
-		nivel: 'admin'
+		name: '',
+		email: '',
+		nivel: '',
+		city: '',
+		state: ''
 	},
 
-	token: 'adsadcc2WQDsdaAHjk03558SckZy'
+	token: ''
 }

@@ -91,14 +91,20 @@ export default {
 </script>
 ```
 
-```js  
-```
+
+No Vuex, temos à nossa disposição o método `mapState`. Com ele não precisamos utilizar `this.$store.state.user`. Por exemplo:
 
 ```js  
-```
+import { mapState } from 'vuex'
 
-```js  
-```
-
-```js  
+// (...)
+computed: {
+  ...mapState({
+    user: state => {
+      const { name, email } = state.user
+      return `O usuário logado é ${ name } e possui o e-mail ${ email }.`
+    }
+  })
+}
+// ...
 ```
